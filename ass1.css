@@ -1,0 +1,96 @@
+@font-face {
+    font-family: "Crustaceans";
+    src: url("./Crustaceans.otf") format("opentype");
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('Photos/main_background.jpg'); /* Background image of the girl */
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh; /* Ensure the body takes at least the full viewport height */
+}
+
+.main-header
+{
+    margin-top: 2vw;
+    font-size: 4vw;
+    text-align: center;
+    font-family: "Crustaceans", Courier, monospace;
+    text-shadow: 0.1vw 0.1vw 0.3vw rgba(0, 0, 0, 0.7); /* Use vw for shadow offsets */
+    z-index: 10; /* Ensure the text is above the blurred background */
+}
+
+.main-container
+{
+    margin: 0 auto;
+    /* min-height: 2000px;  */
+}
+
+.carousel {
+    position: relative;
+ 
+    width: 55vw; 
+    height: 50%; 
+    overflow: hidden;
+    float: right;
+    margin-left: 45vw;
+    margin-top: 1.5vw;
+    margin-right: 4vw;
+   
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Ensure transitions are applied */
+  
+}
+
+
+.carousel.active:hover {
+    transform: scale(0.95); /* Scale the image slightly */
+    opacity: 0.85; /* Darken the image slightly */
+    /* backdrop-filter: blur(50px); */
+    
+    /* background-color: rgba(0, 0, 0, 0.1); */
+
+
+}
+
+
+img {
+    
+    /* min-height: 823px; */
+    /* min-width: 951px; */
+}
+
+/* .nav {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+} */
+
+/* .carousel {
+    width: 55vw; 
+    height: 50vh; 
+    overflow: hidden;
+} */
+
+.carousel-item {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    display: block; 
+    
+}
+
+.carousel-indicators
+{
+   
+    
+}
+.carousel-control-prev,
+.carousel-control-next {
+    
+}

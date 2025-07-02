@@ -1,0 +1,257 @@
+:root {
+    --jp-black: #4B4B4D;
+   --sakura: rgb(231,194,217);
+   --sakura-shadow:rgba(104, 1, 73, 0.7);
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    position: relative; 
+    color: #fff; /* Change text color to white for better contrast */
+    zoom: 150%;
+}
+
+.background {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('./Photos/japan.jpg'); 
+    background-size: cover; 
+    background-position: center; 
+    
+    z-index: -1; 
+}
+
+.overlay {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255, 0.3); /* Darker overlay for higher contrast */
+    filter: blur(8px); /* Darken the background image */
+    z-index: -1; 
+}
+
+.top-container
+{
+   
+   position: relative;
+  
+   
+}
+
+.back-button {
+    position: absolute;
+    top: 3vh;
+    left: 2vw;
+    padding: 10px 15px;
+    background-color: rgba(255,255,255, 0.3); 
+    color: var(--jp-black);
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1000;
+    transform: scale(1.1);
+    backdrop-filter: filter(10px);
+    transition: transform 0.5s ease, background-color 0.5s ease; 
+    
+   
+}
+.back-button:hover {
+    transform: scale(1.05);
+    background-color: rgba(75,75,77, 0.1); 
+}
+
+
+header {
+    text-align: center;
+    position: relative; 
+    z-index: 1; 
+    color : var(--jp-black);
+    padding: 20px;
+    opacity: 0.8;
+    text-shadow: 2px 2px 4px var(--sakura-shadow); 
+    animation: fade 4s infinite alternate;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2.5em;
+    
+}
+
+.video-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0; /* Adds space around the video */
+    width: 100%; /* Ensures the container takes full width */
+    opacity: 0; /* Start with the video hidden */
+    transition: opacity 0.5s ease-in; /* Transition effect */
+ }
+ 
+ .video-container.show {
+    opacity: 1; /* Fully visible when the class is added */
+    transform: scale(1); /* Scale to normal size */
+ }
+ 
+ .video-container iframe {
+ 
+    max-width: 100%; /* Ensures it doesn't exceed the container width */
+ }
+
+
+
+main {
+    padding: 20px;
+    position: relative; 
+    z-index: 1; 
+}
+
+.flex-container {
+    display: flex; 
+    flex-direction: column; 
+    max-width: 2000px; 
+    margin: 30px auto; 
+    position: relative; 
+    width: 100%; 
+    height: 400px;
+    max-height: 500px;
+    min-height: 300px;
+   
+    overflow-y:auto; 
+    
+}
+
+.flex-container::-webkit-scrollbar
+{
+    display: none;
+}
+
+.region, .hidden {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: flex-start; 
+
+    position: absolute;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    border-radius: 8px;
+    
+    overflow-y: scroll;  
+    
+   
+    background: rgba(255, 255, 255, 0.3); 
+    color: var(--jp-black);
+    text-shadow: 2px 2px 4px var(--sakura);
+    opacity: 0; 
+    transition: opacity 0.5s ease, transform 0.5s ease, backdrop-filter 0.5s ease;
+}
+
+.region:hover, .hidden:hover
+ {
+    backdrop-filter: blur(5px);
+ }
+
+ .region::-webkit-scrollbar, .hidden::-webkit-scrollbar {
+    display: none; 
+}
+
+.slide-left {
+    transform: translateX(100%);
+}
+
+.slide-right {
+    transform: translateX(-100%);
+}
+
+.attraction img, .map, .text-region {
+    width: 100%; 
+    height: 100%; 
+    margin: 0 2%;
+    max-width: 500px;
+    max-height: 500px;
+    object-fit: cover; 
+}
+
+.attraction, .map
+{
+    padding: 1% 2%;
+}
+
+.text-region
+{
+    padding: auto;
+}
+
+.region.slide-right, .hidden.slide-right {
+    flex-direction: row-reverse;
+}
+
+.map {
+    height: auto;
+    width: 25%;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin: 10px 0;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    color: var(--jp-black);
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    z-index: 1; 
+    text-shadow: 2px 2px 4px var(--sakura);
+}
+
+
+
+@keyframes fade {
+   0%{
+       opacity: 0.8; 
+       text-shadow: 3px 3px 4px var(--sakura-shadow); 
+   }
+   100% {
+       opacity: 1; 
+       text-shadow: 3px 3px 1px var(--sakura); 
+   }
+}
+
+@media (max-width: 768px) {
+    .flex-container {
+        flex-direction: column; 
+    }
+
+    .region, .hidden {
+        width: 100%; 
+        height: auto; 
+    }
+
+    .map {
+        width: 100%; 
+        height: 300px; 
+        margin-top: 20px; 
+    }
+
+    header h1 {
+        font-size: 2em; 
+    }
+
+    header p {
+        font-size: 1em; 
+    }
+}
